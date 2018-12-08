@@ -10,6 +10,8 @@ Version from 08.12.18 --- Trajectories with prescribed itineraries in the CR3BP 
 
   * The shooting algorithm with initial values coming from the linearized problem converges only for energies E slightly above the energy E(L) of the Lagrange point L. In order to get Lyapunov orbits at both L_1 and L_2 simultaneously for given E, we have to choose E>E(L_2)>E(L_1) slightly above E(L_2), so that both necks are open; however, depending on E(L_2)-E(L_1), it might happen that E is not slightly above E(L_1) anymore. Therefore, we have to find the Lyapunov orbit for an energy E(L_2)>E'>E(L_1) by shooting and then extend it to E = E'+dE by the algorithm in question. 
 
+* See *Documents/CR3BP.pdf* for a talk based [1] for explanation of the mathematics.
+
 * The library *CR3BP.wl* is used by the Mathematica 10.4 notebook *explorer.nb*, which is a functioning prototype of the promised user interface. One can look for Lyapunov orbits, draw stable and unstable manifolds and search for their intersections at various Poincare sections. The explorer keeps a list of computed data whose visualization can be turned on and off. The following are some nice examples:
   * For \mu="Sun-Jupiter",  the Lagrange point L_2 and dE=0.0015, one can find 1:1 homoclinic transverse interesection of stable and unstable manifolds at U_4 in the exterior realm.
   ![alt text](https://github.com/p135246/CR3BP_Explorer/blob/master/Graphics/11homoclinig.jpeg)
