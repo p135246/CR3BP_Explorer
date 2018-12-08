@@ -21,7 +21,7 @@ Version from 08.12.18 --- Trajectories with prescribed itineraries in the CR3BP 
   * Write manual to *explorer.nb*
   * Implement the algorithm for Lyapunov orbits with higher energy.
   * Find some more examples, e.g. parameters E and \mu for and a complete homoclinic-heteroclinic chain!
-  * Long term - Implement the methods of weak stability boundary from [2]
+  * Long term - Implement the methods of weak stability boundary from [2] and compare to [1]
 
 References
 ==========
