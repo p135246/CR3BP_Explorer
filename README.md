@@ -12,7 +12,7 @@ Version from 08.12.18 --- Trajectories with prescribed itineraries in the CR3BP 
 
 * The library *CR3BP.wl* is used by the Mathematica 10.4 notebook *explorer.nb*, which is a functioning prototype of the promised user interface. One can look for Lyapunov orbits, draw stable and unstable manifolds and search for their intersections at various Poincare sections. The explorer keeps a list of computed data whose visualization can be turned on and off. The following are some nice examples:
   * For \mu="Sun-Jupiter",  the Lagrange point L_2 and dE=0.0015, one can find 1:1 homoclinic transverse interesection of stable and unstable manifolds at U_4 in the exterior realm.
-  ![alt text](https://github.com/p135246/CR3BP_Explorer/Graphics/11homoclinig.jpeg)
+  ![alt text](https://github.com/p135246/CR3BP_Explorer/blob/master/Graphics/11homoclinig.jpeg)
 
 * KNOWN ERRORS
   * The definitions of U_2 and U_3 are messed up.
