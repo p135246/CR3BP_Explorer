@@ -1,5 +1,12 @@
 (* ::Package:: *)
 
+(* ::Text:: *)
+(*Mathematical library for the CR3BP Explorer*)
+(*Version 0.2*)
+(*(c) 2018 Pavel Hajek*)
+
+
+
 BeginPackage["CR3BP`"];
 
 Unprotect@@Names["CR3BP`*"]; 
@@ -123,7 +130,7 @@ _?NumberQ,x];
  Protect[\[Mu]]);
 
 
-rotatingToSpatial[t_,{x_,y_}]:={{Cos[t],-Sin[t]},{Sin[t],Cos[t]}}.{x,y};
+rotatingToSpatial[t_,{x_,y_}]:={{Cos[t],-Sin[t]},{Sin[t],Cos[t]}} . {x,y};
 
 
 energy[{x_,y_,vx_,vy_}]:= 1/2(vx^2+vy^2)+Ueff[{x,y}];
@@ -177,7 +184,7 @@ lagrangePoints=lagrangePts;
 
 linearToRotating[lpnum_,{\[Xi]_,\[Eta]_,\[Zeta]1_,\[Zeta]2_}]:=With[{lp=lagrangePts[[lpnum]]},
 
-Join[lp,{0,0}]+Transpose[{u1,u2,Re[w1],Im[w1]}].{\[Xi],\[Eta],\[Zeta]1,\[Zeta]2}/.xe->lp[[1]]
+Join[lp,{0,0}]+Transpose[{u1,u2,Re[w1],Im[w1]}] . {\[Xi],\[Eta],\[Zeta]1,\[Zeta]2}/.xe->lp[[1]]
 
 ];
 
@@ -185,7 +192,7 @@ Join[lp,{0,0}]+Transpose[{u1,u2,Re[w1],Im[w1]}].{\[Xi],\[Eta],\[Zeta]1,\[Zeta]2}
 
 rotatingToLinear[lpnum_,{x_,y_,vx_,vy_}]:=With[{lp=lagrangePts[[lpnum]]},
 
-Inverse[Transpose[{u1,u2,Re[w1],Im[w1]}/.xe->lp[[1]]]].({x,y,vx,vy}-Join[lp,{0,0}])
+Inverse[Transpose[{u1,u2,Re[w1],Im[w1]}/.xe->lp[[1]]]] . ({x,y,vx,vy}-Join[lp,{0,0}])
 
 ];
 
@@ -280,7 +287,7 @@ B[t_]:=Df[{orb[[1]][t],orb[[2]][t],orb[[3]][t],orb[[4]][t]}];
 
 NDSolveValue[
 
-{A'[t]==B[t].A[t],
+{A'[t]==B[t] . A[t],
 
 A[0]==OptionValue[InitialCondition]},
 
@@ -398,15 +405,15 @@ grad[{x_,y_,vx_,vy_}]:=FunctionExpand[Grad[energy[{x,y,vx,vy}],{x,y,vx,vy}],Elem
 
 deltav=If[Min[dist[[1]],dist[[2]]]<Min[dist[[3]],dist[[4]]], 
 
-If[grad[ic0].ev2>0, ev2, -ev2],
+If[grad[ic0] . ev2>0, ev2, -ev2],
 
-If[grad[ic0].ev1>0, ev1, -ev1]
+If[grad[ic0] . ev1>0, ev1, -ev1]
 
 ];
 
 deltav={deltav[[1]],0,0,deltav[[4]]};
 
-NDSolve[{u'[t]==grad[ic0+t*deltav].deltav, u[0]==energy[ic0], 
+NDSolve[{u'[t]==grad[ic0+t*deltav] . deltav, u[0]==energy[ic0], 
 
 WhenEvent[u[t]==energy[ic0]+deltaenergy,t0=t;"StopIntegraion"]},
 
@@ -568,7 +575,7 @@ Part[#,2,Ordering[Part[#,1],1]//Sequence]&[Eigensystem[\[Phi]M]]//Flatten,
 "u",Part[#,2,Ordering[Part[#,1],-1]//Sequence]&[Eigensystem[\[Phi]M]]//Flatten
 ];
 
-Y[t_]:=SetPrecision[OptionValue[Epsilon] Normalize[stm[t].Y0],2 workprec];
+Y[t_]:=SetPrecision[OptionValue[Epsilon] Normalize[stm[t] . Y0],2 workprec];
 (* Y is used to find an initial condition only. Setting its precision higher than it really is does not increase the precision of the orbit with this IC. So it does not cause an 'imprecision loss'.*)
 
 
