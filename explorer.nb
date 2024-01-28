@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    466394,       8181]
-NotebookOptionsPosition[    464842,       8145]
-NotebookOutlinePosition[    465322,       8164]
-CellTagsIndexPosition[    465279,       8161]
+NotebookDataLength[    466545,       8184]
+NotebookOptionsPosition[    464987,       8148]
+NotebookOutlinePosition[    465473,       8167]
+CellTagsIndexPosition[    465430,       8164]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -6145,7 +6145,7 @@ Cell[BoxData[{
      ",", "plotxminsec", ",", "plotymaxsec", ",", "plotyminsec", ",", 
      "ctrlzoompt1sec", ",", "ctrlzoompt2sec", ",", "ctrlzoomrectanglesec", 
      ",", "ctrlarsec", ",", "ctrlzoomingsec", ",", "ctrlkeeparsec", ",", 
-     "ctrlcrossvalue"}], "}"}], ",", "\[IndentingNewLine]", 
+     "ctrlcrossvalue", ",", "lagpts"}], "}"}], ",", "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"Panel", "[", 
     RowBox[{
@@ -6153,14 +6153,15 @@ Cell[BoxData[{
      "Manipulate", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
-        RowBox[{"set\[Mu]AndLagrangePoints", "[", 
-         RowBox[{
-          RowBox[{"SetPrecision", "[", 
-           RowBox[{"ctrl\[Mu]", ",", "Infinity"}], "]"}], ",", 
-          RowBox[{"WorkingPrecision", "\[Rule]", 
-           RowBox[{"2", "ctrlsdtocalc"}]}], ",", 
-          RowBox[{"PrecisionGoal", "\[Rule]", "ctrlsdtocalc"}], ",", 
-          RowBox[{"AccuracyGoal", "\[Rule]", "Infinity"}]}], "]"}], ";", 
+        RowBox[{"lagpts", "=", 
+         RowBox[{"set\[Mu]AndLagrangePoints", "[", 
+          RowBox[{
+           RowBox[{"SetPrecision", "[", 
+            RowBox[{"ctrl\[Mu]", ",", "Infinity"}], "]"}], ",", 
+           RowBox[{"WorkingPrecision", "\[Rule]", 
+            RowBox[{"2", "ctrlsdtocalc"}]}], ",", 
+           RowBox[{"PrecisionGoal", "\[Rule]", "ctrlsdtocalc"}], ",", 
+           RowBox[{"AccuracyGoal", "\[Rule]", "Infinity"}]}], "]"}]}], ";", 
         "\[IndentingNewLine]", 
         RowBox[{"(*", " ", 
          RowBox[{
@@ -6175,7 +6176,7 @@ Cell[BoxData[{
          RowBox[{"Table", "[", 
           RowBox[{
            RowBox[{"Ueff", "[", 
-            RowBox[{"lagrangePoints", "[", 
+            RowBox[{"lagpts", "[", 
              RowBox[{"[", "k", "]"}], "]"}], "]"}], ",", 
            RowBox[{"{", 
             RowBox[{"k", ",", "1", ",", "5"}], "}"}]}], "]"}]}], ";", 
@@ -6195,7 +6196,7 @@ Cell[BoxData[{
              RowBox[{"Ceiling", "[", 
               RowBox[{
                RowBox[{"Ueff", "[", 
-                RowBox[{"lagrangePoints", "[", 
+                RowBox[{"lagpts", "[", 
                  RowBox[{"[", "ctrllagrangepoint", "]"}], "]"}], "]"}], ",", 
                RowBox[{"10", "^", 
                 RowBox[{"(", 
@@ -6275,10 +6276,10 @@ Cell[BoxData[{
           RowBox[{
            RowBox[{"Thread", "[", 
             RowBox[{"Labeled", "[", 
-             RowBox[{"lagrangePoints", ",", 
+             RowBox[{"lagpts", ",", 
               RowBox[{"Range", "[", 
-               RowBox[{"Length", "[", "lagrangePoints", "]"}], "]"}]}], "]"}],
-             "]"}], ",", 
+               RowBox[{"Length", "[", "lagpts", "]"}], "]"}]}], "]"}], "]"}], 
+           ",", 
            RowBox[{"PlotStyle", "->", 
             RowBox[{"{", 
              RowBox[{"Green", ",", 
@@ -6289,8 +6290,8 @@ Cell[BoxData[{
           RowBox[{"Graphics", "[", 
            RowBox[{"{", 
             RowBox[{"Green", ",", 
-             RowBox[{"Point", "[", "lagrangePoints", "]"}]}], "}"}], "]"}], 
-          ";"}], "*)"}], "\[IndentingNewLine]", 
+             RowBox[{"Point", "[", "lagpts", "]"}]}], "}"}], "]"}], ";"}], 
+         "*)"}], "\[IndentingNewLine]", 
         RowBox[{"(*", " ", 
          RowBox[{"Draws", " ", "Lagrange", " ", "points"}], " ", "*)"}], 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -6749,7 +6750,7 @@ Cell[BoxData[{
                     RowBox[{"i", ",", "1", ",", "5"}], "}"}]}], "]"}], ",", 
                     RowBox[{"N", "[", 
                     RowBox[{
-                    RowBox[{"Ueff", "/@", "lagrangePoints"}], ",", 
+                    RowBox[{"Ueff", "/@", "lagpts"}], ",", 
                     "ctrlsdtodisplay"}], "]"}]}], "}"}], "]"}], "]"}], ",", 
                  "\[IndentingNewLine]", "\[IndentingNewLine]", 
                  RowBox[{"Row", "[", 
@@ -8054,8 +8055,8 @@ RowBox[{\"-\", \"d\"}]},\"Superscript\"]\) where d=\>\"", ",",
           RowBox[{"AppendTo", "[", 
            RowBox[{"plotlist", ",", 
             RowBox[{"{", 
-             RowBox[{"\"\<lagrangepoints\>\"", ",", "1", ",", "True"}], 
-             "}"}]}], "]"}], ";"}], "\[IndentingNewLine]", ")"}]}]}], 
+             RowBox[{"\"\<lagpts\>\"", ",", "1", ",", "True"}], "}"}]}], 
+           "]"}], ";"}], "\[IndentingNewLine]", ")"}]}]}], 
       "\[IndentingNewLine]", 
       RowBox[{"(*", " ", 
        RowBox[{
@@ -8138,17 +8139,19 @@ RowBox[{\"-\", \"d\"}]},\"Superscript\"]\) where d=\>\"", ",",
    3.898453585834214*^9, 3.898453666408828*^9}, {3.898453698472877*^9, 
    3.898453740718165*^9}, {3.8984538166272993`*^9, 3.8984538310743437`*^9}, {
    3.898485313859109*^9, 3.898485351880458*^9}, {3.898485407091826*^9, 
-   3.8984854138358707`*^9}},
+   3.8984854138358707`*^9}, {3.91546117125098*^9, 3.9154611740113697`*^9}, {
+   3.915461324692357*^9, 3.9154613433441772`*^9}, {3.915461484618534*^9, 
+   3.91546148475443*^9}},
  CellLabel->"In[3]:=",ExpressionUUID->"c1c5af71-dc39-4f75-916e-b04a9d9189a0"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1440, 810},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{1435.5, 802.5},
+WindowMargins->{{0.75, Automatic}, {Automatic, 0.75}},
 DockedCells->{},
 TaggingRules-><|"TryRealOnly" -> False|>,
 Magnification:>1. Inherited,
-FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+FrontEndVersion->"13.3 for Linux x86 (64-bit) (June 3, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"870a8dca-4835-4186-811f-21f8f24e4e0c"
 ]
@@ -8165,7 +8168,7 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 218, 4, 98, "Title",ExpressionUUID->"08dce177-24f9-4151-a365-f39e85df6dfc"],
-Cell[801, 28, 232, 3, 59, "Subtitle",ExpressionUUID->"77884b5e-d8d7-4414-87a6-1675652759f0"],
+Cell[801, 28, 232, 3, 61, "Subtitle",ExpressionUUID->"77884b5e-d8d7-4414-87a6-1675652759f0"],
 Cell[CellGroupData[{
 Cell[1058, 35, 161, 3, 54, "Subsection",ExpressionUUID->"5e5327bc-2ec0-48c3-915b-de2032bf9539"],
 Cell[1222, 40, 2222, 34, 150, "Text",ExpressionUUID->"0b4a99fc-6038-4cff-ba34-e3b5fe024629"],
@@ -8179,7 +8182,7 @@ Cell[5039, 115, 1728, 38, 127, "Text",ExpressionUUID->"222377af-f808-48c9-87c0-2
 Cell[CellGroupData[{
 Cell[6804, 158, 157, 3, 54, "Subsection",ExpressionUUID->"52631ec3-3df0-4d43-be29-d55677523dd0"],
 Cell[6964, 163, 360710, 5956, 1004, "Text",ExpressionUUID->"8489f4c9-085e-4767-b078-ffa9e96cc8a3"],
-Cell[367677, 6121, 97137, 2020, 9197, "Input",ExpressionUUID->"c1c5af71-dc39-4f75-916e-b04a9d9189a0",
+Cell[367677, 6121, 97282, 2023, 9008, "Input",ExpressionUUID->"c1c5af71-dc39-4f75-916e-b04a9d9189a0",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]]

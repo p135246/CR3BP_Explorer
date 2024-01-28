@@ -6,7 +6,6 @@
 (*(c) 2018 Pavel Hajek*)
 
 
-
 BeginPackage["CR3BP`"];
 
 Unprotect@@Names["CR3BP`*"]; 
@@ -174,6 +173,8 @@ Flatten[{FindRoot[Ueffx[{l1x,0}],{l1x,0},op],FindRoot[Ueffx[{l2x,0}],{l2x,1},op]
 ]
 
 Protect[lagrangePts];
+
+lagrangePts
 
 ];
 
